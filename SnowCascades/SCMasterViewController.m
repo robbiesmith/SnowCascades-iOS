@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 SnowCascades. All rights reserved.
 //
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
+#define kLatestKivaLoansURL [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
+
 #import "SCMasterViewController.h"
 
 #import "SCDetailViewController.h"
@@ -29,12 +32,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    dispatch_async(kBgQueue, ^{
+        NSData* data = [NSData dataWithContentsOfURL:
+                        kLatestKivaLoansURL];
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data waitUntilDone:YES];
+    });
+	
+    // Do any additional setup after loading the view, typically from a nib.
+    /*
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+     */
     self.detailViewController = (SCDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+}
+
+- (void)fetchedData:(NSData *)responseData {
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:responseData //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    NSArray* latestLoans = [json objectForKey:@"resorts"]; //2
+    
+    if (!_objects) {
+        _objects = [[NSMutableArray alloc] init];
+    }
+    for(NSDictionary *resort in latestLoans){
+        [_objects insertObject:[resort objectForKey:@"name"] atIndex:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+
+    NSLog(@"loans: %@", latestLoans); //3
 }
 
 - (void)didReceiveMemoryWarning

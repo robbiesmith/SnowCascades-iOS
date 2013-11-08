@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1F308C0182D614500552345 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308BF182D614500552345 /* Foundation.framework */; };
+		F1F308C2182D614500552345 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C1182D614500552345 /* CoreGraphics.framework */; };
+		F1F308C4182D614500552345 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C3182D614500552345 /* UIKit.framework */; };
+		F1F308CA182D614500552345 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F308C8182D614500552345 /* InfoPlist.strings */; };
+		F1F308CC182D614500552345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308CB182D614500552345 /* main.m */; };
+		F1F308D0182D614500552345 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308CF182D614500552345 /* SCAppDelegate.m */; };
+		F1F308D3182D614500552345 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F308D1182D614500552345 /* Main_iPhone.storyboard */; };
+		F1F308D6182D614500552345 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F308D4182D614500552345 /* Main_iPad.storyboard */; };
+		F1F308D9182D614500552345 /* SCMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308D8182D614500552345 /* SCMasterViewController.m */; };
+		F1F308DC182D614500552345 /* SCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308DB182D614500552345 /* SCDetailViewController.m */; };
+		F1F308DE182D614500552345 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F308DD182D614500552345 /* Images.xcassets */; };
+		F1F308E5182D614500552345 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308E4182D614500552345 /* XCTest.framework */; };
+		F1F308E6182D614500552345 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308BF182D614500552345 /* Foundation.framework */; };
+		F1F308E7182D614500552345 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C3182D614500552345 /* UIKit.framework */; };
+		F1F308EF182D614500552345 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F308ED182D614500552345 /* InfoPlist.strings */; };
+		F1F308F1182D614500552345 /* SnowCascadesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308F0182D614500552345 /* SnowCascadesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1F308E8182D614500552345 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1F308B4182D614500552345 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F308BB182D614500552345;
+			remoteInfo = SnowCascades;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F1F308BC182D614500552345 /* SnowCascades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowCascades.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F308BF182D614500552345 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F1F308C1182D614500552345 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F1F308C3182D614500552345 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F1F308C7182D614500552345 /* SnowCascades-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnowCascades-Info.plist"; sourceTree = "<group>"; };
+		F1F308C9182D614500552345 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F1F308CB182D614500552345 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F1F308CD182D614500552345 /* SnowCascades-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnowCascades-Prefix.pch"; sourceTree = "<group>"; };
+		F1F308CE182D614500552345 /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
+		F1F308CF182D614500552345 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
+		F1F308D2182D614500552345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F1F308D5182D614500552345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F1F308D7182D614500552345 /* SCMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; };
+		F1F308D8182D614500552345 /* SCMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; };
+		F1F308DA182D614500552345 /* SCDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; };
+		F1F308DB182D614500552345 /* SCDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; };
+		F1F308DD182D614500552345 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F1F308E3182D614500552345 /* SnowCascadesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowCascadesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F308E4182D614500552345 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F1F308EC182D614500552345 /* SnowCascadesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnowCascadesTests-Info.plist"; sourceTree = "<group>"; };
+		F1F308EE182D614500552345 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F1F308F0182D614500552345 /* SnowCascadesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnowCascadesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1F308B9182D614500552345 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308C2182D614500552345 /* CoreGraphics.framework in Frameworks */,
+				F1F308C4182D614500552345 /* UIKit.framework in Frameworks */,
+				F1F308C0182D614500552345 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1F308E0182D614500552345 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308E5182D614500552345 /* XCTest.framework in Frameworks */,
+				F1F308E7182D614500552345 /* UIKit.framework in Frameworks */,
+				F1F308E6182D614500552345 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1F308B3182D614500552345 = {
+			isa = PBXGroup;
+			children = (
+				F1F308C5182D614500552345 /* SnowCascades */,
+				F1F308EA182D614500552345 /* SnowCascadesTests */,
+				F1F308BE182D614500552345 /* Frameworks */,
+				F1F308BD182D614500552345 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1F308BD182D614500552345 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308BC182D614500552345 /* SnowCascades.app */,
+				F1F308E3182D614500552345 /* SnowCascadesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1F308BE182D614500552345 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308BF182D614500552345 /* Foundation.framework */,
+				F1F308C1182D614500552345 /* CoreGraphics.framework */,
+				F1F308C3182D614500552345 /* UIKit.framework */,
+				F1F308E4182D614500552345 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1F308C5182D614500552345 /* SnowCascades */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308CE182D614500552345 /* SCAppDelegate.h */,
+				F1F308CF182D614500552345 /* SCAppDelegate.m */,
+				F1F308D1182D614500552345 /* Main_iPhone.storyboard */,
+				F1F308D4182D614500552345 /* Main_iPad.storyboard */,
+				F1F308D7182D614500552345 /* SCMasterViewController.h */,
+				F1F308D8182D614500552345 /* SCMasterViewController.m */,
+				F1F308DA182D614500552345 /* SCDetailViewController.h */,
+				F1F308DB182D614500552345 /* SCDetailViewController.m */,
+				F1F308DD182D614500552345 /* Images.xcassets */,
+				F1F308C6182D614500552345 /* Supporting Files */,
+			);
+			path = SnowCascades;
+			sourceTree = "<group>";
+		};
+		F1F308C6182D614500552345 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308C7182D614500552345 /* SnowCascades-Info.plist */,
+				F1F308C8182D614500552345 /* InfoPlist.strings */,
+				F1F308CB182D614500552345 /* main.m */,
+				F1F308CD182D614500552345 /* SnowCascades-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1F308EA182D614500552345 /* SnowCascadesTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308F0182D614500552345 /* SnowCascadesTests.m */,
+				F1F308EB182D614500552345 /* Supporting Files */,
+			);
+			path = SnowCascadesTests;
+			sourceTree = "<group>";
+		};
+		F1F308EB182D614500552345 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308EC182D614500552345 /* SnowCascadesTests-Info.plist */,
+				F1F308ED182D614500552345 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1F308BB182D614500552345 /* SnowCascades */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1F308F4182D614500552345 /* Build configuration list for PBXNativeTarget "SnowCascades" */;
+			buildPhases = (
+				F1F308B8182D614500552345 /* Sources */,
+				F1F308B9182D614500552345 /* Frameworks */,
+				F1F308BA182D614500552345 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnowCascades;
+			productName = SnowCascades;
+			productReference = F1F308BC182D614500552345 /* SnowCascades.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F1F308E2182D614500552345 /* SnowCascadesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1F308F7182D614500552345 /* Build configuration list for PBXNativeTarget "SnowCascadesTests" */;
+			buildPhases = (
+				F1F308DF182D614500552345 /* Sources */,
+				F1F308E0182D614500552345 /* Frameworks */,
+				F1F308E1182D614500552345 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1F308E9182D614500552345 /* PBXTargetDependency */,
+			);
+			name = SnowCascadesTests;
+			productName = SnowCascadesTests;
+			productReference = F1F308E3182D614500552345 /* SnowCascadesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1F308B4182D614500552345 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SC;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = SnowCascades;
+				TargetAttributes = {
+					F1F308E2182D614500552345 = {
+						TestTargetID = F1F308BB182D614500552345;
+					};
+				};
+			};
+			buildConfigurationList = F1F308B7182D614500552345 /* Build configuration list for PBXProject "SnowCascades" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1F308B3182D614500552345;
+			productRefGroup = F1F308BD182D614500552345 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1F308BB182D614500552345 /* SnowCascades */,
+				F1F308E2182D614500552345 /* SnowCascadesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1F308BA182D614500552345 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308D6182D614500552345 /* Main_iPad.storyboard in Resources */,
+				F1F308DE182D614500552345 /* Images.xcassets in Resources */,
+				F1F308D3182D614500552345 /* Main_iPhone.storyboard in Resources */,
+				F1F308CA182D614500552345 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1F308E1182D614500552345 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308EF182D614500552345 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1F308B8182D614500552345 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308D9182D614500552345 /* SCMasterViewController.m in Sources */,
+				F1F308D0182D614500552345 /* SCAppDelegate.m in Sources */,
+				F1F308CC182D614500552345 /* main.m in Sources */,
+				F1F308DC182D614500552345 /* SCDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1F308DF182D614500552345 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F308F1182D614500552345 /* SnowCascadesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1F308E9182D614500552345 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1F308BB182D614500552345 /* SnowCascades */;
+			targetProxy = F1F308E8182D614500552345 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F1F308C8182D614500552345 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1F308C9182D614500552345 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F1F308D1182D614500552345 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1F308D2182D614500552345 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F1F308D4182D614500552345 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1F308D5182D614500552345 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F1F308ED182D614500552345 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1F308EE182D614500552345 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1F308F2182D614500552345 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1F308F3182D614500552345 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1F308F5182D614500552345 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
+				INFOPLIST_FILE = "SnowCascades/SnowCascades-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F1F308F6182D614500552345 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
+				INFOPLIST_FILE = "SnowCascades/SnowCascades-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F1F308F8182D614500552345 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnowCascades.app/SnowCascades";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SnowCascadesTests/SnowCascadesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F1F308F9182D614500552345 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnowCascades.app/SnowCascades";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
+				INFOPLIST_FILE = "SnowCascadesTests/SnowCascadesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1F308B7182D614500552345 /* Build configuration list for PBXProject "SnowCascades" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1F308F2182D614500552345 /* Debug */,
+				F1F308F3182D614500552345 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1F308F4182D614500552345 /* Build configuration list for PBXNativeTarget "SnowCascades" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1F308F5182D614500552345 /* Debug */,
+				F1F308F6182D614500552345 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F1F308F7182D614500552345 /* Build configuration list for PBXNativeTarget "SnowCascadesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1F308F8182D614500552345 /* Debug */,
+				F1F308F9182D614500552345 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1F308B4182D614500552345 /* Project object */;
+}

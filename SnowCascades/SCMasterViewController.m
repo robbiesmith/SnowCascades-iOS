@@ -7,7 +7,7 @@
 //
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
-#define kLatestKivaLoansURL [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
+#define kScowCascadeData [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
 
 #import "SCMasterViewController.h"
 
@@ -37,7 +37,7 @@
     [super viewDidLoad];
     dispatch_async(kBgQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL:
-                        kLatestKivaLoansURL];
+                        kScowCascadeData];
         [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data waitUntilDone:YES];
     });
@@ -61,13 +61,13 @@
                           options:kNilOptions
                           error:&error];
     
-    NSArray* latestLoans = [json objectForKey:@"resorts"]; //2
+    NSArray* resorts = [json objectForKey:@"resorts"]; //2
     
-    for(NSDictionary *resort in latestLoans){
+    for(NSDictionary *resort in resorts){
         [self insertNewObject:resort];
     }
 
-    NSLog(@"loans: %@", latestLoans); //3
+    NSLog(@"resorts: %@", resorts); //3
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,7 +111,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

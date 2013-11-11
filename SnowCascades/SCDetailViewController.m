@@ -25,7 +25,7 @@
         _detailItem = newDetailItem;
         
         // Update the view.
-        //[self configureView];
+        [self configureView];
     }
 
     if (self.masterPopoverController != nil) {

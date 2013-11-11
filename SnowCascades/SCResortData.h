@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) NSString *name;
 
+@property (strong, nonatomic) NSDictionary *data;
+
 @property (strong, nonatomic) NSString *snowTitle;
 @property (strong, nonatomic) NSString *snowBody;
 
@@ -24,5 +26,9 @@
 - (id)initWithName:(NSString *)name;
 
 - (id)initWithData:(NSDictionary *)data;
+
+- (id)getSnowView;
+- (id)getTrafficView;
+- (id)getWeatherView;
 
 @end

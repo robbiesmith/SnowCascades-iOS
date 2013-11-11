@@ -25,7 +25,7 @@
         _detailItem = newDetailItem;
         
         // Update the view.
-        [self configureView];
+        //[self configureView];
     }
 
     if (self.masterPopoverController != nil) {
@@ -38,7 +38,32 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem trafficBody];
+        // by default show the snow view
+        //self.detailDescriptionLabel.text = [[self.detailItem getSnowView] text];
+        
+        UIButton *snowButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [snowButton addTarget:self
+                       action:@selector(showSnow)
+             forControlEvents:UIControlEventTouchDown];
+        [snowButton setTitle:@"Snow" forState:UIControlStateNormal];
+        snowButton.frame = CGRectMake(20.0, 80.0, 60.0, 40.0);
+        [[self view] addSubview:snowButton];
+
+        UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [weatherButton addTarget:self
+                          action:@selector(showWeather)
+                forControlEvents:UIControlEventTouchDown];
+        [weatherButton setTitle:@"Weather" forState:UIControlStateNormal];
+        weatherButton.frame = CGRectMake(100.0, 80.0, 60.0, 40.0);
+        [[self view] addSubview:weatherButton];
+
+        UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [trafficButton addTarget:self
+                          action:@selector(showTraffic)
+                forControlEvents:UIControlEventTouchDown];
+        [trafficButton setTitle:@"Traffic" forState:UIControlStateNormal];
+        trafficButton.frame = CGRectMake(180.0, 80.0, 60.0, 40.0);
+        [[self view] addSubview:trafficButton];
     }
 }
 
@@ -47,6 +72,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    [self showSnow];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +85,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Resorts", @"Resorts");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }
@@ -69,6 +95,21 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+-(void)showTraffic {
+    self.detailDescriptionLabel.text = [[self.detailItem getTrafficView] text];
+    
+}
+
+-(void)showWeather {
+    self.detailDescriptionLabel.text = [[self.detailItem getWeatherView] text];
+    
+}
+
+-(void)showSnow {
+    self.detailDescriptionLabel.text = [[self.detailItem getSnowView] text];
+    
 }
 
 @end

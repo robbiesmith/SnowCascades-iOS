@@ -13,6 +13,9 @@
 
 #import "SCDetailViewController.h"
 
+#import "SCResortData.h"
+
+
 @interface SCMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -60,13 +63,8 @@
     
     NSArray* latestLoans = [json objectForKey:@"resorts"]; //2
     
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
     for(NSDictionary *resort in latestLoans){
-        [_objects insertObject:[resort objectForKey:@"name"] atIndex:0];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self insertNewObject:resort];
     }
 
     NSLog(@"loans: %@", latestLoans); //3
@@ -83,7 +81,8 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    SCResortData *resort = [[SCResortData alloc] initWithData:sender];
+    [_objects insertObject:resort atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -104,8 +103,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    SCResortData *object = _objects[indexPath.row];
+    cell.textLabel.text = [object name];
     return cell;
 }
 

@@ -8,6 +8,8 @@
 
 #import "SCDetailViewController.h"
 
+#import "SCResortData.h"
+
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -36,7 +38,7 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailDescriptionLabel.text = [self.detailItem trafficBody];
     }
 }
 

@@ -23,6 +23,7 @@
 		F1F308E7182D614500552345 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C3182D614500552345 /* UIKit.framework */; };
 		F1F308EF182D614500552345 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F308ED182D614500552345 /* InfoPlist.strings */; };
 		F1F308F1182D614500552345 /* SnowCascadesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308F0182D614500552345 /* SnowCascadesTests.m */; };
+		F1F308FD182DA0A000552345 /* SCResortData.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F308FC182DA0A000552345 /* SCResortData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		F1F308EC182D614500552345 /* SnowCascadesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnowCascadesTests-Info.plist"; sourceTree = "<group>"; };
 		F1F308EE182D614500552345 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F1F308F0182D614500552345 /* SnowCascadesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnowCascadesTests.m; sourceTree = "<group>"; };
+		F1F308FB182DA0A000552345 /* SCResortData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCResortData.h; sourceTree = "<group>"; };
+		F1F308FC182DA0A000552345 /* SCResortData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCResortData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 		F1F308C5182D614500552345 /* SnowCascades */ = {
 			isa = PBXGroup;
 			children = (
+				F1F308FA182D99FD00552345 /* Data */,
 				F1F308CE182D614500552345 /* SCAppDelegate.h */,
 				F1F308CF182D614500552345 /* SCAppDelegate.m */,
 				F1F308D1182D614500552345 /* Main_iPhone.storyboard */,
@@ -158,6 +162,15 @@
 				F1F308ED182D614500552345 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1F308FA182D99FD00552345 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308FB182DA0A000552345 /* SCResortData.h */,
+				F1F308FC182DA0A000552345 /* SCResortData.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F308D9182D614500552345 /* SCMasterViewController.m in Sources */,
+				F1F308FD182DA0A000552345 /* SCResortData.m in Sources */,
 				F1F308D0182D614500552345 /* SCAppDelegate.m in Sources */,
 				F1F308CC182D614500552345 /* main.m in Sources */,
 				F1F308DC182D614500552345 /* SCDetailViewController.m in Sources */,

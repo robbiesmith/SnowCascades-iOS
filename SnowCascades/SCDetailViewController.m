@@ -12,6 +12,7 @@
 
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong, nonatomic) UIView *myView;
 - (void)configureView;
 @end
 
@@ -98,17 +99,26 @@
 }
 
 -(void)showTraffic {
-    self.detailDescriptionLabel.text = [[self.detailItem getTrafficView] text];
+//    [self.view addSubview:[self.detailItem getTrafficView]];
+    [_myView removeFromSuperview];
+    _myView = [self.detailItem getTrafficView];
+    [[self view] addSubview:_myView];
     
 }
 
 -(void)showWeather {
-    self.detailDescriptionLabel.text = [[self.detailItem getWeatherView] text];
+//    [self.view addSubview:[self.detailItem getWeatherView]];
+    [_myView removeFromSuperview];
+    _myView = [self.detailItem getWeatherView];
+    [[self view] addSubview:_myView];
     
 }
 
 -(void)showSnow {
-    self.detailDescriptionLabel.text = [[self.detailItem getSnowView] text];
+//    [self.view addSubview:[self.detailItem getSnowView]];
+    [_myView removeFromSuperview];
+    _myView = [self.detailItem getSnowView];
+    [[self view] addSubview:_myView];
     
 }
 

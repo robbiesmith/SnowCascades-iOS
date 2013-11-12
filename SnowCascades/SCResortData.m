@@ -48,6 +48,7 @@
     }
     UILabel *snowView = [[UILabel alloc] init];
     snowView.text = contents;
+    snowView.frame = CGRectMake(100.0, 120.0, 200.0, 400.0);
     
     return snowView;
 }
@@ -68,6 +69,7 @@
     }
     UILabel *weatherView = [[UILabel alloc] init];
     weatherView.text = contents;
+    weatherView.frame = CGRectMake(100.0, 120.0, 200.0, 400.0);
     
     return weatherView;
 }
@@ -82,6 +84,7 @@
     }
     UILabel *trafficView = [[UILabel alloc] init];
     trafficView.text = contents;
+    trafficView.frame = CGRectMake(100.0, 120.0, 200.0, 400.0);
     
     return trafficView;
 }

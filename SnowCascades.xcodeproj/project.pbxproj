@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1D0178B1832BEA6004C14D5 /* SCSnowContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D0178A1832BEA6004C14D5 /* SCSnowContentView.m */; };
 		F1F308C0182D614500552345 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308BF182D614500552345 /* Foundation.framework */; };
 		F1F308C2182D614500552345 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C1182D614500552345 /* CoreGraphics.framework */; };
 		F1F308C4182D614500552345 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C3182D614500552345 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1D017891832BEA6004C14D5 /* SCSnowContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSnowContentView.h; sourceTree = "<group>"; };
+		F1D0178A1832BEA6004C14D5 /* SCSnowContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSnowContentView.m; sourceTree = "<group>"; };
 		F1F308BC182D614500552345 /* SnowCascades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowCascades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F308BF182D614500552345 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F1F308C1182D614500552345 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1D017861832BE17004C14D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308D7182D614500552345 /* SCMasterViewController.h */,
+				F1F308D8182D614500552345 /* SCMasterViewController.m */,
+				F1F308DA182D614500552345 /* SCDetailViewController.h */,
+				F1F308DB182D614500552345 /* SCDetailViewController.m */,
+				F1D017891832BEA6004C14D5 /* SCSnowContentView.h */,
+				F1D0178A1832BEA6004C14D5 /* SCSnowContentView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F1D017881832BE58004C14D5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F1F308D4182D614500552345 /* Main_iPad.storyboard */,
+				F1F308D1182D614500552345 /* Main_iPhone.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		F1F308B3182D614500552345 = {
 			isa = PBXGroup;
 			children = (
@@ -120,15 +145,11 @@
 		F1F308C5182D614500552345 /* SnowCascades */ = {
 			isa = PBXGroup;
 			children = (
+				F1D017881832BE58004C14D5 /* Storyboards */,
+				F1D017861832BE17004C14D5 /* Views */,
 				F1F308FA182D99FD00552345 /* Data */,
 				F1F308CE182D614500552345 /* SCAppDelegate.h */,
 				F1F308CF182D614500552345 /* SCAppDelegate.m */,
-				F1F308D1182D614500552345 /* Main_iPhone.storyboard */,
-				F1F308D4182D614500552345 /* Main_iPad.storyboard */,
-				F1F308D7182D614500552345 /* SCMasterViewController.h */,
-				F1F308D8182D614500552345 /* SCMasterViewController.m */,
-				F1F308DA182D614500552345 /* SCDetailViewController.h */,
-				F1F308DB182D614500552345 /* SCDetailViewController.m */,
 				F1F308DD182D614500552345 /* Images.xcassets */,
 				F1F308C6182D614500552345 /* Supporting Files */,
 			);
@@ -277,6 +298,7 @@
 				F1F308D0182D614500552345 /* SCAppDelegate.m in Sources */,
 				F1F308CC182D614500552345 /* main.m in Sources */,
 				F1F308DC182D614500552345 /* SCDetailViewController.m in Sources */,
+				F1D0178B1832BEA6004C14D5 /* SCSnowContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +517,7 @@
 				F1F308F6182D614500552345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1F308F7182D614500552345 /* Build configuration list for PBXNativeTarget "SnowCascadesTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +526,7 @@
 				F1F308F9182D614500552345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

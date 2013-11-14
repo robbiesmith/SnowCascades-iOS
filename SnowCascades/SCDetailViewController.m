@@ -8,7 +8,7 @@
 
 #import "SCDetailViewController.h"
 
-#import "SCSnowContentView.h"
+#import "SCResortData.h"
 
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -20,14 +20,14 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(SCResortData *)newDetailItem
+- (void)setDetailItem:(id)newDetailItem
 {
-//    if (self.detailItem != newDetailItem) {
+    if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
         // Update the view.
         [self configureView];
-//    }
+    }
 
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
@@ -101,11 +101,7 @@
 -(void)showTraffic {
 //    [self.view addSubview:[self.detailItem getTrafficView]];
     [_myView removeFromSuperview];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
-    NSDictionary *trafficData = [self.detailItem.data objectForKey:@"traffic"];
-    [thisView setViewData:[trafficData objectForKey:@"body"]];
-    [thisView createViewContents];
-    _myView = thisView;
+    _myView = [self.detailItem getTrafficView];
     [[self view] addSubview:_myView];
     
 }
@@ -113,28 +109,15 @@
 -(void)showWeather {
 //    [self.view addSubview:[self.detailItem getWeatherView]];
     [_myView removeFromSuperview];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
-    NSArray *weatherDays = [[self.detailItem.data objectForKey:@"weather"] objectForKey:@"tabs"];
-    NSArray *trafficData = [weatherDays objectAtIndex:0];
-
-    [thisView setViewData:trafficData];
-    [thisView createViewContents];
-    _myView = thisView;
-//    _myView = [self.detailItem getWeatherView];
+    _myView = [self.detailItem getWeatherView];
     [[self view] addSubview:_myView];
     
 }
 
 -(void)showSnow {
 //    [self.view addSubview:[self.detailItem getSnowView]];
-    if(_myView) {
-        [_myView removeFromSuperview];
-    }
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
-    NSDictionary *trafficData = [self.detailItem.data objectForKey:@"conditions"];
-    [thisView setViewData:[trafficData objectForKey:@"body"]];
-    [thisView createViewContents];
-    _myView = thisView;
+    [_myView removeFromSuperview];
+    _myView = [self.detailItem getSnowView];
     [[self view] addSubview:_myView];
     
 }

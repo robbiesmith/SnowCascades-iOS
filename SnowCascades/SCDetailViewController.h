@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SCResortData.h"
-
 @interface SCDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (weak, nonatomic) SCResortData *detailItem;
+@property (strong, nonatomic) id detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
 @end

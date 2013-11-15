@@ -10,6 +10,8 @@
 
 #import "SCResortData.h"
 
+#import "SCSnowContentView.h"
+
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) UIView *myView;
@@ -101,7 +103,12 @@
 -(void)showTraffic {
 //    [self.view addSubview:[self.detailItem getTrafficView]];
     [_myView removeFromSuperview];
-    _myView = [self.detailItem getTrafficView];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    SCResortData *resortData = self.detailItem;
+    NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
+    [thisView setViewData:[trafficData objectForKey:@"body"]];
+    [thisView createViewContents];
+    _myView = thisView;
     [[self view] addSubview:_myView];
     
 }
@@ -109,7 +116,13 @@
 -(void)showWeather {
 //    [self.view addSubview:[self.detailItem getWeatherView]];
     [_myView removeFromSuperview];
-    _myView = [self.detailItem getWeatherView];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    SCResortData *resortData = self.detailItem;
+    NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
+    NSArray *trafficData = [weatherDays objectAtIndex:0];
+    [thisView setViewData:trafficData];
+    [thisView createViewContents];
+    _myView = thisView;
     [[self view] addSubview:_myView];
     
 }
@@ -117,7 +130,12 @@
 -(void)showSnow {
 //    [self.view addSubview:[self.detailItem getSnowView]];
     [_myView removeFromSuperview];
-    _myView = [self.detailItem getSnowView];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    SCResortData *resortData = self.detailItem;
+    NSDictionary *trafficData = [resortData.data objectForKey:@"conditions"];
+    [thisView setViewData:[trafficData objectForKey:@"body"]];
+    [thisView createViewContents];
+    _myView = thisView;
     [[self view] addSubview:_myView];
     
 }

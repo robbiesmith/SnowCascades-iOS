@@ -26,15 +26,7 @@
 
         _name = [data objectForKey:@"name"];
         _imageBase = [data objectForKey:@"imageBase"];
-
-        _trafficTitle = [[data objectForKey:@"traffic"] objectForKey:@"title"];
-        _snowTitle = [[_data objectForKey:@"conditions"] objectForKey:@"title"];
-        _weatherTitle = [[_data objectForKey:@"weather"] objectForKey:@"title"];
-
-        NSArray *trafficItems = [[data objectForKey:@"traffic"] objectForKey:@"body"];
-        for( NSDictionary *item in trafficItems) {
-            _trafficBody = [item objectForKey:@"text"];
-        }
+        _activeWeatherDay = 0;
     }
     return self;
 }

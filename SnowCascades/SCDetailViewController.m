@@ -116,13 +116,39 @@
 -(void)showWeather {
 //    [self.view addSubview:[self.detailItem getWeatherView]];
     [_myView removeFromSuperview];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
-    NSArray *trafficData = [weatherDays objectAtIndex:0];
+    NSArray *trafficData = [weatherDays objectAtIndex:resortData.activeWeatherDay];
     [thisView setViewData:trafficData];
     [thisView createViewContents];
-    _myView = thisView;
+    [overallView addSubview:thisView];
+
+    if( resortData.activeWeatherDay + 1 < [weatherDays count] ) {
+        UIButton *nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [nextButton addTarget:self
+                       action:@selector(nextWeather)
+             forControlEvents:UIControlEventTouchDown];
+        [nextButton setTitle:@"NEXT" forState:UIControlStateNormal];
+        nextButton.frame = CGRectMake(60.0, 80.0, 60.0, 40.0);
+        [overallView addSubview:nextButton];
+    }
+
+    if( resortData.activeWeatherDay > 0 ) {
+        UIButton *nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [nextButton addTarget:self
+                       action:@selector(prevWeather)
+             forControlEvents:UIControlEventTouchDown];
+        [nextButton setTitle:@"PREV" forState:UIControlStateNormal];
+        nextButton.frame = CGRectMake(0.0, 80.0, 60.0, 40.0);
+        [overallView addSubview:nextButton];
+    }
+
+
+    _myView = overallView;
+
     [[self view] addSubview:_myView];
     
 }
@@ -138,6 +164,18 @@
     _myView = thisView;
     [[self view] addSubview:_myView];
     
+}
+
+-(void)nextWeather {
+    SCResortData *resortData = self.detailItem;
+    resortData.activeWeatherDay++;
+    [self showWeather];
+}
+
+-(void)prevWeather {
+    SCResortData *resortData = self.detailItem;
+    resortData.activeWeatherDay--;
+    [self showWeather];
 }
 
 @end

@@ -16,14 +16,7 @@
 
 @property (strong, nonatomic) NSDictionary *data;
 
-@property (strong, nonatomic) NSString *snowTitle;
-@property (strong, nonatomic) NSString *snowBody;
-
-@property (strong, nonatomic) NSString *trafficTitle;
-@property (strong, nonatomic) NSString *trafficBody;
-
-@property (strong, nonatomic) NSString *weatherTitle;
-@property (strong, nonatomic) NSString *weatherBody;
+@property int activeWeatherDay;
 
 - (id)initWithName:(NSString *)name;
 

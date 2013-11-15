@@ -8,6 +8,8 @@
 
 #import "SCSnowContentView.h"
 
+#import "AsyncImageView.h"
+
 @implementation SCSnowContentView
 
 
@@ -41,11 +43,18 @@
     
         for( NSDictionary *item in self.data) {
             if([item objectForKey:@"icon"]){
-                    continue;
+                AsyncImageView *lImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20.0, yOffset, 200.0, 400.0)];
+                lImageView.contentMode = UIViewContentModeScaleToFill;
+                lImageView.clipsToBounds = YES;
+                lImageView.tag = 1;
+                
+                [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:lImageView];
+                lImageView.imageURL =[NSURL URLWithString:[item objectForKey:@"icon"]];
+                [itemView addSubview:lImageView];
             }
             if ([item objectForKey:@"header"]) {
                 UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 400.0)];
-                NSString *contents =[item objectForKey:@"header"];
+                NSString *contents = [item objectForKey:@"header"];
                 trafficView.text = contents;
                 yOffset = yOffset + 20.0;
                 [itemView addSubview:trafficView];

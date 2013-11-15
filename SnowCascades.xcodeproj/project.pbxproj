@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1B7C4CE18369AEF003453DC /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7C4CD18369AEF003453DC /* AsyncImageView.m */; };
 		F1C5672E1835719100F69A1B /* SCSnowContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C5672D1835719100F69A1B /* SCSnowContentView.m */; };
 		F1F308C0182D614500552345 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308BF182D614500552345 /* Foundation.framework */; };
 		F1F308C2182D614500552345 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F308C1182D614500552345 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1B7C4CC18369AEF003453DC /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		F1B7C4CD18369AEF003453DC /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		F1C5672C1835719100F69A1B /* SCSnowContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSnowContentView.h; sourceTree = "<group>"; };
 		F1C5672D1835719100F69A1B /* SCSnowContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSnowContentView.m; sourceTree = "<group>"; };
 		F1F308BC182D614500552345 /* SnowCascades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowCascades.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,9 +93,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1B7C4CA18369ACD003453DC /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				F1B7C4CB18369AEF003453DC /* AsyncImageView */,
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		F1B7C4CB18369AEF003453DC /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F1B7C4CC18369AEF003453DC /* AsyncImageView.h */,
+				F1B7C4CD18369AEF003453DC /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		F1F308B3182D614500552345 = {
 			isa = PBXGroup;
 			children = (
+				F1B7C4CA18369ACD003453DC /* Third Party */,
 				F1F308C5182D614500552345 /* SnowCascades */,
 				F1F308EA182D614500552345 /* SnowCascadesTests */,
 				F1F308BE182D614500552345 /* Frameworks */,
@@ -283,6 +304,7 @@
 				F1F308CC182D614500552345 /* main.m in Sources */,
 				F1F308DC182D614500552345 /* SCDetailViewController.m in Sources */,
 				F1C5672E1835719100F69A1B /* SCSnowContentView.m in Sources */,
+				F1B7C4CE18369AEF003453DC /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

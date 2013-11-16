@@ -17,8 +17,8 @@
 {
         self = [super initWithFrame:frame];
         if (self) {
-                // Initialization code
-            }
+            // Initialization code
+        }
         return self;
     }
 
@@ -39,11 +39,11 @@
 -(void)createViewContents
 {
         float yOffset = 0.0;
-        UIScrollView *itemView = [[UIScrollView alloc] initWithFrame:CGRectMake(20.0, 80.0, 200.0, 400.0)];
+        UIScrollView *itemView = [[UIScrollView alloc] initWithFrame:[self frame]];
     
         for( NSDictionary *item in self.data) {
             if([item objectForKey:@"icon"]){
-                AsyncImageView *lImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20.0, yOffset, 200.0, 400.0)];
+                AsyncImageView *lImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20.0, yOffset, 55.0, 58.0)];
                 lImageView.contentMode = UIViewContentModeScaleToFill;
                 lImageView.clipsToBounds = YES;
                 lImageView.tag = 1;
@@ -53,14 +53,14 @@
                 [itemView addSubview:lImageView];
             }
             if ([item objectForKey:@"header"]) {
-                UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 400.0)];
+                UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 20.0)];
                 NSString *contents = [item objectForKey:@"header"];
                 trafficView.text = contents;
                 yOffset = yOffset + 20.0;
                 [itemView addSubview:trafficView];
             }
             if ([item objectForKey:@"text"]) {
-                UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 400.0)];
+                UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 20.0)];
                 NSString *contents =[item objectForKey:@"text"];
                 trafficView.text = contents;
                 yOffset = yOffset + 20.0;

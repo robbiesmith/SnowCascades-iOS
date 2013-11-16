@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 SnowCascades. All rights reserved.
 //
 
+#define kScowCascadeData [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
+
 #import "SCDetailViewController.h"
 
 #import "SCResortData.h"
@@ -103,12 +105,14 @@
 -(void)showTraffic {
 //    [self.view addSubview:[self.detailItem getTrafficView]];
     [_myView removeFromSuperview];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
     [thisView createViewContents];
-    _myView = thisView;
+    [overallView addSubview:thisView];
+    _myView = overallView;
     [[self view] addSubview:_myView];
     
 }
@@ -116,9 +120,9 @@
 -(void)showWeather {
 //    [self.view addSubview:[self.detailItem getWeatherView]];
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
 
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
     NSArray *trafficData = [weatherDays objectAtIndex:resortData.activeWeatherDay];
@@ -146,7 +150,6 @@
         [overallView addSubview:nextButton];
     }
 
-
     _myView = overallView;
 
     [[self view] addSubview:_myView];
@@ -156,14 +159,15 @@
 -(void)showSnow {
 //    [self.view addSubview:[self.detailItem getSnowView]];
     [_myView removeFromSuperview];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(100.0, 120.0, 200.0, 400.0)];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"conditions"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
     [thisView createViewContents];
-    _myView = thisView;
+    [overallView addSubview:thisView];
+    _myView = overallView;
     [[self view] addSubview:_myView];
-    
 }
 
 -(void)nextWeather {

@@ -56,18 +56,16 @@
     //parse out the json data
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData //1
-                          
+                          JSONObjectWithData:responseData
                           options:kNilOptions
                           error:&error];
     
-    NSArray* resorts = [json objectForKey:@"resorts"]; //2
+    NSArray* resorts = [json objectForKey:@"resorts"];
     
     for(NSDictionary *resort in resorts){
         [self insertNewObject:resort];
     }
 
-    NSLog(@"resorts: %@", resorts); //3
 }
 
 - (void)didReceiveMemoryWarning

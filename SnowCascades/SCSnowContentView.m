@@ -51,19 +51,29 @@
                 [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:lImageView];
                 lImageView.imageURL =[NSURL URLWithString:[item objectForKey:@"icon"]];
                 [itemView addSubview:lImageView];
+                
+                yOffset = yOffset + 60.0;
             }
             if ([item objectForKey:@"header"]) {
+
                 UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 20.0)];
-                NSString *contents = [item objectForKey:@"header"];
-                trafficView.text = contents;
-                yOffset = yOffset + 20.0;
+                [trafficView setFont:[UIFont boldSystemFontOfSize:trafficView.font.pointSize]];
+                trafficView.lineBreakMode = NSLineBreakByWordWrapping;
+                [trafficView setNumberOfLines:0];
+                trafficView.text = [item objectForKey:@"header"];
+                [trafficView sizeToFit];
+
+                yOffset = yOffset + trafficView.frame.size.height;
                 [itemView addSubview:trafficView];
             }
             if ([item objectForKey:@"text"]) {
                 UILabel *trafficView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yOffset, 200.0, 20.0)];
-                NSString *contents =[item objectForKey:@"text"];
-                trafficView.text = contents;
-                yOffset = yOffset + 20.0;
+                trafficView.lineBreakMode = NSLineBreakByWordWrapping;
+                [trafficView setNumberOfLines:0];
+                trafficView.text = [item objectForKey:@"text"];
+                [trafficView sizeToFit];
+
+                yOffset = yOffset + trafficView.frame.size.height;
                 [itemView addSubview:trafficView];
             }
         }

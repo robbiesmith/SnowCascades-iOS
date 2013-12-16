@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DD8B89E3-D4BF-4185-8D6F-CF0E199E852E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SnowCascades</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>01A9DBC4-FA68-4A9B-B254-F452AE35C2C9</key>
+		<string>https://github.com/robbiesmith/SnowCascades-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SnowCascades.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>01A9DBC4-FA68-4A9B-B254-F452AE35C2C9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/robbiesmith/SnowCascades-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>01A9DBC4-FA68-4A9B-B254-F452AE35C2C9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>01A9DBC4-FA68-4A9B-B254-F452AE35C2C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SnowCascades</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCSnowContentView : UIView
+@interface SCSnowContentView : UIScrollView
 
 @property(weak,nonatomic) NSArray *data;
 

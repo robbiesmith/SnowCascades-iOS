@@ -12,6 +12,8 @@
 
 #import "SCSnowContentView.h"
 
+#define kDetailDisplayWidth 240.0
+
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) UIView *myView;
@@ -43,9 +45,16 @@
 {
 
     if (self.detailItem) {
+        /*
+         NSDictionary *viewsDictionary =
+         NSDictionaryOfVariableBindings(self.button1, self.button2);
+         NSArray *constraints =
+         [NSLayoutConstraint constraintsWithVisualFormat:@"[button1]-[button2]"
+         options:0 metrics:nil views:viewsDictionary];
+         */
 
         SCResortData *resortData = self.detailItem;
-        CGFloat xOffset = 20.0;
+        CGFloat xOffset = (self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2;
         bool showTab = NO;
         
         if ( [resortData.data objectForKey:@"conditions"] != nil ) {
@@ -133,8 +142,9 @@
 
 -(void)showTraffic {
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
@@ -147,9 +157,9 @@
 
 -(void)showWeather {
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
 
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
     SCResortData *resortData = self.detailItem;
     NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
     NSArray *trafficData = [weatherDays objectAtIndex:resortData.activeWeatherDay];
@@ -187,8 +197,8 @@
 
 -(void)showSnow {
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"conditions"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];

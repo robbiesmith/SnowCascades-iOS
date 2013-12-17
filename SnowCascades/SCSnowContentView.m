@@ -77,7 +77,10 @@
                 [itemView addSubview:trafficView];
             }
         }
-        
+        itemView.showsHorizontalScrollIndicator = YES;
+        itemView.scrollEnabled = YES;
+        itemView.userInteractionEnabled = YES;
+        itemView.contentSize = CGSizeMake(200.0,200.0);
         [self addSubview:itemView];
     
     }

@@ -7,7 +7,7 @@
 //
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
-#define kScowCascadeData [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
+#define kSnowCascadeData [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
 
 #import "SCMasterViewController.h"
 
@@ -36,10 +36,23 @@
 {
     [super viewDidLoad];
     dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        kScowCascadeData];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
+        @try {
+            NSData* data = [NSData dataWithContentsOfURL:kSnowCascadeData];
+            if ( data == nil ) {
+                [NSException raise:@"No data from server" format:@""];
+            }
+            [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data waitUntilDone:YES];
+            if ( _objects == nil || [_objects count] == 0 ) {
+                [NSException raise:@"Bad data from server" format:@""];
+            }
+        }
+        @catch (NSException *e) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"no_data" ofType:@"json"];
+            NSData* errorData = [NSData dataWithContentsOfFile:path ];
+            [self performSelectorOnMainThread:@selector(fetchedData:)
+                                   withObject:errorData waitUntilDone:YES];
+        }
     });
 	
     // Do any additional setup after loading the view, typically from a nib.
@@ -62,7 +75,7 @@
     
     NSArray* resorts = [json objectForKey:@"resorts"];
     
-    for(NSDictionary *resort in resorts){
+    for(NSDictionary *resort in [resorts reverseObjectEnumerator]){
         [self insertNewObject:resort];
     }
 

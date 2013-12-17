@@ -43,7 +43,7 @@
     
         for( NSDictionary *item in self.data) {
             if([item objectForKey:@"icon"]){
-                AsyncImageView *lImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20.0, yOffset, 55.0, 58.0)];
+                AsyncImageView *lImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake( (itemView.frame.size.width - 55.0 ) / 2, yOffset, 55.0, 58.0)];
                 lImageView.contentMode = UIViewContentModeScaleToFill;
                 lImageView.clipsToBounds = YES;
                 lImageView.tag = 1;

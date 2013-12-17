@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 SnowCascades. All rights reserved.
 //
 
-#define kScowCascadeData [NSURL URLWithString:@"http://snowcascades.com/cascade/data.json"] //2
-
 #import "SCDetailViewController.h"
 
 #import "SCResortData.h"
@@ -135,19 +133,21 @@
         [nextButton addTarget:self
                        action:@selector(nextWeather)
              forControlEvents:UIControlEventTouchDown];
-        [nextButton setTitle:@"NEXT" forState:UIControlStateNormal];
-        nextButton.frame = CGRectMake(60.0, 80.0, 60.0, 40.0);
+        [nextButton setTitle:@">" forState:UIControlStateNormal];
+        [nextButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
+        nextButton.frame = CGRectMake(overallView.frame.size.width - 60.0, 10.0, 60.0, 40.0);
         [overallView addSubview:nextButton];
     }
 
     if( resortData.activeWeatherDay > 0 ) {
-        UIButton *nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [nextButton addTarget:self
+        UIButton *prevButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [prevButton addTarget:self
                        action:@selector(prevWeather)
              forControlEvents:UIControlEventTouchDown];
-        [nextButton setTitle:@"PREV" forState:UIControlStateNormal];
-        nextButton.frame = CGRectMake(0.0, 80.0, 60.0, 40.0);
-        [overallView addSubview:nextButton];
+        [prevButton setTitle:@"<" forState:UIControlStateNormal];
+        [prevButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
+        prevButton.frame = CGRectMake(0.0, 10.0, 60.0, 40.0);
+        [overallView addSubview:prevButton];
     }
 
     _myView = overallView;

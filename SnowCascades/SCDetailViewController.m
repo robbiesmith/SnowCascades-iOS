@@ -28,6 +28,9 @@
         _detailItem = newDetailItem;
         
         // Update the view.
+        for (UIView *view in [self.view subviews]) {
+            [view removeFromSuperview];
+        }
         [self configureView];
     }
 
@@ -97,7 +100,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Resorts", @"Resorts");
+    barButtonItem.title = NSLocalizedString(@"Areas", @"Areas");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

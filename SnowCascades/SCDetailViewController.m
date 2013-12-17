@@ -38,43 +38,52 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        // by default show the snow view
-        //self.detailDescriptionLabel.text = [[self.detailItem getSnowView] text];
+
+        SCResortData *resortData = self.detailItem;
+        CGFloat xOffset = 20.0;
         
-        UIButton *snowButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [snowButton addTarget:self
-                       action:@selector(showSnow)
-             forControlEvents:UIControlEventTouchDown];
-        [snowButton setTitle:@"Snow" forState:UIControlStateNormal];
-        snowButton.frame = CGRectMake(20.0, 80.0, 60.0, 40.0);
-        [[self view] addSubview:snowButton];
+        if ( [resortData.data objectForKey:@"conditions"] != nil ) {
+            UIButton *snowButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [snowButton addTarget:self
+                           action:@selector(showSnow)
+                 forControlEvents:UIControlEventTouchDown];
+            [snowButton setTitle:[[resortData.data objectForKey:@"conditions"] objectForKey:@"title"] forState:UIControlStateNormal];
+            snowButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+            [[self view] addSubview:snowButton];
+            xOffset = xOffset + 80.0;
+        }
 
-        UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [weatherButton addTarget:self
-                          action:@selector(showWeather)
-                forControlEvents:UIControlEventTouchDown];
-        [weatherButton setTitle:@"Weather" forState:UIControlStateNormal];
-        weatherButton.frame = CGRectMake(100.0, 80.0, 60.0, 40.0);
-        [[self view] addSubview:weatherButton];
+        if ( [resortData.data objectForKey:@"weather"] != nil ) {
+            UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [weatherButton addTarget:self
+                              action:@selector(showWeather)
+                    forControlEvents:UIControlEventTouchDown];
+            [weatherButton setTitle:[[resortData.data objectForKey:@"weather"] objectForKey:@"title"] forState:UIControlStateNormal];
+            weatherButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+            [[self view] addSubview:weatherButton];
+            xOffset = xOffset + 80.0;
+        }
 
-        UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [trafficButton addTarget:self
-                          action:@selector(showTraffic)
-                forControlEvents:UIControlEventTouchDown];
-        [trafficButton setTitle:@"Traffic" forState:UIControlStateNormal];
-        trafficButton.frame = CGRectMake(180.0, 80.0, 60.0, 40.0);
-        [[self view] addSubview:trafficButton];
+        if ( [resortData.data objectForKey:@"traffic"] != nil ) {
+            UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [trafficButton addTarget:self
+                              action:@selector(showTraffic)
+                    forControlEvents:UIControlEventTouchDown];
+            [trafficButton setTitle:[[resortData.data objectForKey:@"traffic"] objectForKey:@"title"] forState:UIControlStateNormal];
+            trafficButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+            [[self view] addSubview:trafficButton];
+            xOffset = xOffset + 80.0;
+        }
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    // show first button - may not be snow
     [self showSnow];
 }
 
@@ -101,7 +110,6 @@
 }
 
 -(void)showTraffic {
-//    [self.view addSubview:[self.detailItem getTrafficView]];
     [_myView removeFromSuperview];
     UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
@@ -116,7 +124,6 @@
 }
 
 -(void)showWeather {
-//    [self.view addSubview:[self.detailItem getWeatherView]];
     [_myView removeFromSuperview];
     UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
 
@@ -157,7 +164,6 @@
 }
 
 -(void)showSnow {
-//    [self.view addSubview:[self.detailItem getSnowView]];
     [_myView removeFromSuperview];
     UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 120.0, 200.0, 400.0)];
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];

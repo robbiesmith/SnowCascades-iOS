@@ -88,6 +88,7 @@
     [self configureView];
     // show first button - may not be snow
     [self showSnow];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,6 +112,13 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
+
+- (BOOL)splitViewController:(UISplitViewController *)splitController shouldHideViewController:(UIViewController *)viewController inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
+}
+
+# pragma mark - show various tabs
 
 -(void)showTraffic {
     [_myView removeFromSuperview];

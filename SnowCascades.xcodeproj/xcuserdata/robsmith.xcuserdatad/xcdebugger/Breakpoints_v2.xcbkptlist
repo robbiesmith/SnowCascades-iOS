@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnowCascades/SCDetailViewController.m"
-            timestampString = "409012943.978343"
+            timestampString = "409013250.940175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-showTraffic"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnowCascades/SCDetailViewController.m"
-            timestampString = "409012943.978343"
+            timestampString = "409013250.940175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-showWeather"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnowCascades/SCDetailViewController.m"
-            timestampString = "409012943.978343"
+            timestampString = "409013250.940175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-showWeather"
             landmarkType = "5">
          </BreakpointContent>

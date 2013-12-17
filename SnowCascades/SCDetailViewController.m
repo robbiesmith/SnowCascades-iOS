@@ -46,6 +46,7 @@
 
         SCResortData *resortData = self.detailItem;
         CGFloat xOffset = 20.0;
+        bool showTab = NO;
         
         if ( [resortData.data objectForKey:@"conditions"] != nil ) {
             UIButton *snowButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -56,6 +57,10 @@
             snowButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
             [[self view] addSubview:snowButton];
             xOffset = xOffset + 80.0;
+            if ( !showTab ) {
+                [self showSnow];
+                showTab = YES;
+            }
         }
 
         if ( [resortData.data objectForKey:@"weather"] != nil ) {
@@ -67,6 +72,10 @@
             weatherButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
             [[self view] addSubview:weatherButton];
             xOffset = xOffset + 80.0;
+            if ( !showTab ) {
+                [self showWeather];
+                showTab = YES;
+            }
         }
 
         if ( [resortData.data objectForKey:@"traffic"] != nil ) {
@@ -78,6 +87,10 @@
             trafficButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
             [[self view] addSubview:trafficButton];
             xOffset = xOffset + 80.0;
+            if ( !showTab ) {
+                [self showTraffic];
+                showTab = YES;
+            }
         }
     }
 }
@@ -86,8 +99,6 @@
 {
     [super viewDidLoad];
     [self configureView];
-    // show first button - may not be snow
-    [self showSnow];
 
 }
 

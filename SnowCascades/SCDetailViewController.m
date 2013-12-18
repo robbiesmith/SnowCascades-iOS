@@ -143,13 +143,17 @@
 -(void)showTraffic {
     [_myView removeFromSuperview];
 
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
+    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
     [thisView createViewContents];
     [overallView addSubview:thisView];
+    overallView.showsHorizontalScrollIndicator = YES;
+    overallView.scrollEnabled = YES;
+    overallView.userInteractionEnabled = YES;
+    overallView.contentSize = CGSizeMake(200.0,200.0);
     _myView = overallView;
     [[self view] addSubview:_myView];
     
@@ -157,9 +161,9 @@
 
 -(void)showWeather {
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
+    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
 
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
     NSArray *trafficData = [weatherDays objectAtIndex:resortData.activeWeatherDay];
@@ -189,6 +193,11 @@
         [overallView addSubview:prevButton];
     }
 
+    overallView.showsHorizontalScrollIndicator = YES;
+    overallView.scrollEnabled = YES;
+    overallView.userInteractionEnabled = YES;
+    overallView.contentSize = CGSizeMake(200.0,200.0);
+
     _myView = overallView;
 
     [[self view] addSubview:_myView];
@@ -197,13 +206,19 @@
 
 -(void)showSnow {
     [_myView removeFromSuperview];
-    UIView *overallView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 400.0)];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 100.0)];
+    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"conditions"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
     [thisView createViewContents];
     [overallView addSubview:thisView];
+
+    overallView.showsHorizontalScrollIndicator = YES;
+    overallView.scrollEnabled = YES;
+    overallView.userInteractionEnabled = YES;
+    overallView.contentSize = CGSizeMake(200.0,200.0);
+
     _myView = overallView;
     [[self view] addSubview:_myView];
 }

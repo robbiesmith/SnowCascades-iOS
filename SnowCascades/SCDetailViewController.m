@@ -143,7 +143,8 @@
 -(void)showTraffic {
     [_myView removeFromSuperview];
 
-    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
+//    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
+    UIScrollView *overallView = [UIScrollView new];
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
@@ -154,9 +155,21 @@
     overallView.scrollEnabled = YES;
     overallView.userInteractionEnabled = YES;
     overallView.contentSize = CGSizeMake(200.0,200.0);
+    overallView.translatesAutoresizingMaskIntoConstraints = NO;
     _myView = overallView;
     [[self view] addSubview:_myView];
     
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+    
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+
+    [overallView addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:200]];
 }
 
 -(void)showWeather {

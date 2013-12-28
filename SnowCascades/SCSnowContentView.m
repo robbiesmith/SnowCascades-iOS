@@ -78,5 +78,6 @@
             }
         }
         [self addSubview:itemView];
+        [self setFrame:CGRectMake( self.frame.origin.x, self.frame.origin.y, self.frame.size.width, yOffset )];
     }
 @end

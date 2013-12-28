@@ -143,7 +143,6 @@
 -(void)showTraffic {
     [_myView removeFromSuperview];
 
-//    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
     UIScrollView *overallView = [UIScrollView new];
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
@@ -154,7 +153,6 @@
     overallView.showsHorizontalScrollIndicator = YES;
     overallView.scrollEnabled = YES;
     overallView.userInteractionEnabled = YES;
-    overallView.contentSize = CGSizeMake(200.0,200.0);
     overallView.translatesAutoresizingMaskIntoConstraints = NO;
     _myView = overallView;
     [[self view] addSubview:_myView];
@@ -169,12 +167,14 @@
                                 constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 
     [overallView addConstraint:[NSLayoutConstraint
-                                constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:200]];
+                                constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:kDetailDisplayWidth]];
+
+    overallView.contentSize = thisView.frame.size;
 }
 
 -(void)showWeather {
     [_myView removeFromSuperview];
-    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
+    UIScrollView *overallView = [UIScrollView new];
 
     SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
     SCResortData *resortData = self.detailItem;
@@ -193,6 +193,12 @@
         [nextButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
         nextButton.frame = CGRectMake(overallView.frame.size.width - 60.0, 10.0, 60.0, 40.0);
         [overallView addSubview:nextButton];
+//        nextButton.translatesAutoresizingMaskIntoConstraints = NO;
+//        [overallView addConstraint:[NSLayoutConstraint
+//                                    constraintWithItem:nextButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:overallView attribute:NSLayoutAttributeTop multiplier:1 constant:140]];
+
+//        [overallView addConstraint:[NSLayoutConstraint
+//                                    constraintWithItem:nextButton attribute:NSLayoutAttributeRight relatedBy:0 toItem:overallView attribute:NSLayoutAttributeRight multiplier:1 constant:-50.0]];
     }
 
     if( resortData.activeWeatherDay > 0 ) {
@@ -202,25 +208,45 @@
              forControlEvents:UIControlEventTouchDown];
         [prevButton setTitle:@"<" forState:UIControlStateNormal];
         [prevButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
-        prevButton.frame = CGRectMake(0.0, 10.0, 60.0, 40.0);
+//        prevButton.frame = CGRectMake(0.0, 10.0, 60.0, 40.0);
         [overallView addSubview:prevButton];
+        prevButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [overallView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:prevButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:overallView attribute:NSLayoutAttributeTop multiplier:1 constant:140.0]];
+        
+        [overallView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:prevButton attribute:NSLayoutAttributeLeft relatedBy:0 toItem:overallView attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0]];
     }
 
     overallView.showsHorizontalScrollIndicator = YES;
     overallView.scrollEnabled = YES;
     overallView.userInteractionEnabled = YES;
-    overallView.contentSize = CGSizeMake(200.0,200.0);
+    overallView.translatesAutoresizingMaskIntoConstraints = NO;
 
     _myView = overallView;
 
     [[self view] addSubview:_myView];
+
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+    
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    [overallView addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:kDetailDisplayWidth]];
+    overallView.contentSize = thisView.frame.size;
+
 }
 
 -(void)showSnow {
     [_myView removeFromSuperview];
-    UIScrollView *overallView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2, 120.0, 200.0, 100.0)];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+    UIScrollView *overallView = [UIScrollView new];
+
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, kDetailDisplayWidth, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"conditions"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
@@ -230,10 +256,24 @@
     overallView.showsHorizontalScrollIndicator = YES;
     overallView.scrollEnabled = YES;
     overallView.userInteractionEnabled = YES;
-    overallView.contentSize = CGSizeMake(200.0,200.0);
+    overallView.translatesAutoresizingMaskIntoConstraints = NO;
 
     _myView = overallView;
     [[self view] addSubview:_myView];
+
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+    
+    [[self view] addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    [overallView addConstraint:[NSLayoutConstraint
+                                constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:kDetailDisplayWidth]];
+    overallView.contentSize = thisView.frame.size;
+
 }
 
 -(void)nextWeather {

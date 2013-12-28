@@ -191,14 +191,13 @@
              forControlEvents:UIControlEventTouchDown];
         [nextButton setTitle:@">" forState:UIControlStateNormal];
         [nextButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
-        nextButton.frame = CGRectMake(overallView.frame.size.width - 60.0, 10.0, 60.0, 40.0);
-        [overallView addSubview:nextButton];
-//        nextButton.translatesAutoresizingMaskIntoConstraints = NO;
-//        [overallView addConstraint:[NSLayoutConstraint
-//                                    constraintWithItem:nextButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:overallView attribute:NSLayoutAttributeTop multiplier:1 constant:140]];
+        [thisView addSubview:nextButton];
+        nextButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [thisView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:thisView attribute:NSLayoutAttributeTop relatedBy:0 toItem:nextButton attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
 
-//        [overallView addConstraint:[NSLayoutConstraint
-//                                    constraintWithItem:nextButton attribute:NSLayoutAttributeRight relatedBy:0 toItem:overallView attribute:NSLayoutAttributeRight multiplier:1 constant:-50.0]];
+        [thisView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:thisView attribute:NSLayoutAttributeRight relatedBy:0 toItem:nextButton attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     }
 
     if( resortData.activeWeatherDay > 0 ) {
@@ -208,14 +207,13 @@
              forControlEvents:UIControlEventTouchDown];
         [prevButton setTitle:@"<" forState:UIControlStateNormal];
         [prevButton.titleLabel setFont:[UIFont boldSystemFontOfSize:24.f]];
-//        prevButton.frame = CGRectMake(0.0, 10.0, 60.0, 40.0);
-        [overallView addSubview:prevButton];
+        [thisView addSubview:prevButton];
         prevButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [overallView addConstraint:[NSLayoutConstraint
-                                    constraintWithItem:prevButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:overallView attribute:NSLayoutAttributeTop multiplier:1 constant:140.0]];
+        [thisView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:thisView attribute:NSLayoutAttributeTop relatedBy:0 toItem:prevButton attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
         
-        [overallView addConstraint:[NSLayoutConstraint
-                                    constraintWithItem:prevButton attribute:NSLayoutAttributeLeft relatedBy:0 toItem:overallView attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0]];
+        [thisView addConstraint:[NSLayoutConstraint
+                                    constraintWithItem:thisView attribute:NSLayoutAttributeLeft relatedBy:0 toItem:prevButton attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0]];
     }
 
     overallView.showsHorizontalScrollIndicator = YES;

@@ -13,6 +13,7 @@
 #import "SCSnowContentView.h"
 
 #define kDetailDisplayWidth 240.0
+#define kButtonOffset 80.0
 
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -45,16 +46,8 @@
 {
 
     if (self.detailItem) {
-        /*
-         NSDictionary *viewsDictionary =
-         NSDictionaryOfVariableBindings(self.button1, self.button2);
-         NSArray *constraints =
-         [NSLayoutConstraint constraintsWithVisualFormat:@"[button1]-[button2]"
-         options:0 metrics:nil views:viewsDictionary];
-         */
 
         SCResortData *resortData = self.detailItem;
-        CGFloat xOffset = (self.view.frame.size.width - kDetailDisplayWidth + 20.0) / 2;
         bool showTab = NO;
         
         if ( [resortData.data objectForKey:@"conditions"] != nil ) {
@@ -63,9 +56,17 @@
                            action:@selector(showSnow)
                  forControlEvents:UIControlEventTouchDown];
             [snowButton setTitle:[[resortData.data objectForKey:@"conditions"] objectForKey:@"title"] forState:UIControlStateNormal];
-            snowButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+            //snowButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
             [[self view] addSubview:snowButton];
-            xOffset = xOffset + 80.0;
+
+            snowButton.translatesAutoresizingMaskIntoConstraints = NO;
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:snowButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:snowButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:-kButtonOffset]];
+            
             if ( !showTab ) {
                 [self showSnow];
                 showTab = YES;
@@ -78,9 +79,17 @@
                               action:@selector(showWeather)
                     forControlEvents:UIControlEventTouchDown];
             [weatherButton setTitle:[[resortData.data objectForKey:@"weather"] objectForKey:@"title"] forState:UIControlStateNormal];
-            weatherButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+
             [[self view] addSubview:weatherButton];
-            xOffset = xOffset + 80.0;
+
+            weatherButton.translatesAutoresizingMaskIntoConstraints = NO;
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:weatherButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:weatherButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+
             if ( !showTab ) {
                 [self showWeather];
                 showTab = YES;
@@ -93,9 +102,17 @@
                               action:@selector(showTraffic)
                     forControlEvents:UIControlEventTouchDown];
             [trafficButton setTitle:[[resortData.data objectForKey:@"traffic"] objectForKey:@"title"] forState:UIControlStateNormal];
-            trafficButton.frame = CGRectMake(xOffset, 80.0, 60.0, 40.0);
+
             [[self view] addSubview:trafficButton];
-            xOffset = xOffset + 80.0;
+            
+            trafficButton.translatesAutoresizingMaskIntoConstraints = NO;
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:trafficButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:trafficButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:kButtonOffset]];
+
             if ( !showTab ) {
                 [self showTraffic];
                 showTab = YES;
@@ -144,7 +161,7 @@
     [_myView removeFromSuperview];
 
     UIScrollView *overallView = [UIScrollView new];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, kDetailDisplayWidth, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];
@@ -176,7 +193,7 @@
     [_myView removeFromSuperview];
     UIScrollView *overallView = [UIScrollView new];
 
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, kDetailDisplayWidth, 400.0)];
     SCResortData *resortData = self.detailItem;
     NSArray *weatherDays = [[resortData.data objectForKey:@"weather"] objectForKey:@"tabs"];
     NSArray *trafficData = [weatherDays objectAtIndex:resortData.activeWeatherDay];

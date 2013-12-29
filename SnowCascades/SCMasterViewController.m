@@ -15,6 +15,9 @@
 
 #import "SCResortData.h"
 
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 @interface SCMasterViewController () {
     NSMutableArray *_objects;
@@ -55,13 +58,13 @@
         }
     });
 	
-    // Do any additional setup after loading the view, typically from a nib.
-    /*
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker set:kGAIScreenName
+           value:@"Master Screen"];
+    
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-     */
     self.detailViewController = (SCDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -158,6 +161,13 @@
         SCResortData *object = _objects[indexPath.row];
         self.detailViewController.detailItem = object;
         [self.detailViewController showSnow];
+
+        id tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                              action:@"button_press"  // Event action (required)
+                                                               label:object.name        // Event label
+                                                               value:nil] build]];    // Event value
     }
 }
 
@@ -168,6 +178,14 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SCResortData *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
+
+        
+        id tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                              action:@"button_press"  // Event action (required)
+                                                               label:object.name        // Event label
+                                                               value:nil] build]];    // Event value
     }
 }
 

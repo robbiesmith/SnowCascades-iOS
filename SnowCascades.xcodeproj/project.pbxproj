@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F18F0F231870A17B002A159E /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = F18F0EEF1870A17B002A159E /* Changelog.txt */; };
+		F18F0F421870A17B002A159E /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F18F0F211870A17B002A159E /* libGoogleAnalytics_debug.a */; };
+		F18F0F431870A17B002A159E /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = F18F0F221870A17B002A159E /* Readme.txt */; };
+		F18F0F481870A5CE002A159E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18F0F471870A5CE002A159E /* CoreData.framework */; };
+		F18F0F4A1870A657002A159E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18F0F491870A657002A159E /* SystemConfiguration.framework */; };
+		F18F0F4C1870A708002A159E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F18F0F4B1870A708002A159E /* libz.dylib */; };
 		F1AD49F3185FE76E008D3CCC /* no_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F1AD49F2185FE76E008D3CCC /* no_data.json */; };
 		F1B7C4CE18369AEF003453DC /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7C4CD18369AEF003453DC /* AsyncImageView.m */; };
 		F1C5672E1835719100F69A1B /* SCSnowContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C5672D1835719100F69A1B /* SCSnowContentView.m */; };
@@ -40,6 +46,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F18F0EEF1870A17B002A159E /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
+		F18F0F1B1870A17B002A159E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		F18F0F1C1870A17B002A159E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		F18F0F1D1870A17B002A159E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		F18F0F1E1870A17B002A159E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		F18F0F1F1870A17B002A159E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		F18F0F201870A17B002A159E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		F18F0F211870A17B002A159E /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		F18F0F221870A17B002A159E /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		F18F0F471870A5CE002A159E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F18F0F491870A657002A159E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F18F0F4B1870A708002A159E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F1AD49F2185FE76E008D3CCC /* no_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = no_data.json; sourceTree = "<group>"; };
 		F1B7C4CC18369AEF003453DC /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		F1B7C4CD18369AEF003453DC /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
@@ -76,9 +94,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18F0F4C1870A708002A159E /* libz.dylib in Frameworks */,
+				F18F0F4A1870A657002A159E /* SystemConfiguration.framework in Frameworks */,
+				F18F0F481870A5CE002A159E /* CoreData.framework in Frameworks */,
 				F1F308C2182D614500552345 /* CoreGraphics.framework in Frameworks */,
 				F1F308C4182D614500552345 /* UIKit.framework in Frameworks */,
 				F1F308C0182D614500552345 /* Foundation.framework in Frameworks */,
+				F18F0F421870A17B002A159E /* libGoogleAnalytics_debug.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,9 +117,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F18F0EEE1870A17B002A159E /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				F18F0EEF1870A17B002A159E /* Changelog.txt */,
+				F18F0F1A1870A17B002A159E /* Library */,
+				F18F0F221870A17B002A159E /* Readme.txt */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		F18F0F1A1870A17B002A159E /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F18F0F1B1870A17B002A159E /* GAI.h */,
+				F18F0F1C1870A17B002A159E /* GAIDictionaryBuilder.h */,
+				F18F0F1D1870A17B002A159E /* GAIFields.h */,
+				F18F0F1E1870A17B002A159E /* GAILogger.h */,
+				F18F0F1F1870A17B002A159E /* GAITrackedViewController.h */,
+				F18F0F201870A17B002A159E /* GAITracker.h */,
+				F18F0F211870A17B002A159E /* libGoogleAnalytics_debug.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		F1B7C4CA18369ACD003453DC /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				F18F0EEE1870A17B002A159E /* GoogleAnalytics */,
 				F1B7C4CB18369AEF003453DC /* AsyncImageView */,
 			);
 			name = "Third Party";
@@ -135,6 +182,9 @@
 		F1F308BE182D614500552345 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F18F0F4B1870A708002A159E /* libz.dylib */,
+				F18F0F491870A657002A159E /* SystemConfiguration.framework */,
+				F18F0F471870A5CE002A159E /* CoreData.framework */,
 				F1F308BF182D614500552345 /* Foundation.framework */,
 				F1F308C1182D614500552345 /* CoreGraphics.framework */,
 				F1F308C3182D614500552345 /* UIKit.framework */,
@@ -284,6 +334,8 @@
 				F1F308D3182D614500552345 /* Main_iPhone.storyboard in Resources */,
 				F1F308CA182D614500552345 /* InfoPlist.strings in Resources */,
 				F1AD49F3185FE76E008D3CCC /* no_data.json in Resources */,
+				F18F0F431870A17B002A159E /* Readme.txt in Resources */,
+				F18F0F231870A17B002A159E /* Changelog.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,9 +497,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
 				INFOPLIST_FILE = "SnowCascades/SnowCascades-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/robsmith/iOS/SnowCascades/GoogleAnalytics/Library,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,9 +516,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnowCascades/SnowCascades-Prefix.pch";
 				INFOPLIST_FILE = "SnowCascades/SnowCascades-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/robsmith/iOS/SnowCascades/GoogleAnalytics/Library,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

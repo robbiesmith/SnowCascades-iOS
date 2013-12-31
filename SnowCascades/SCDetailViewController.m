@@ -12,12 +12,15 @@
 
 #import "SCSnowContentView.h"
 
+#import "AsyncImageView.h"
+
 #define kDetailDisplayWidth 240.0
 #define kButtonOffset 80.0
 
 @interface SCDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) UIView *myView;
+@property (strong, nonatomic) AsyncImageView *lImageView;
 - (void)configureView;
 @end
 
@@ -49,6 +52,31 @@
 
         SCResortData *resortData = self.detailItem;
         bool showTab = NO;
+        self.lImageView = [[AsyncImageView alloc] init];
+        
+        if ( [resortData.data objectForKey:@"logo"] != nil ) {
+            self.lImageView.contentMode = UIViewContentModeScaleAspectFit;
+            self.lImageView.clipsToBounds = YES;
+            self.lImageView.tag = 1;
+            
+            [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self.lImageView];
+            self.lImageView.imageURL =[NSURL URLWithString:[resortData.data objectForKey:@"logo"]];
+            self.lImageView.translatesAutoresizingMaskIntoConstraints = NO;
+
+            [[self view] addSubview:self.lImageView];
+
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.lImageView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:60.0]];
+            
+            [[self view] addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.lImageView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+            
+            [[self lImageView] addConstraint:[NSLayoutConstraint
+                                              constraintWithItem:self.lImageView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:90.0]];
+            
+            [[self lImageView] addConstraint:[NSLayoutConstraint
+                                              constraintWithItem:self.lImageView attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:60.0]];
+        }
         
         if ( [resortData.data objectForKey:@"conditions"] != nil ) {
             UIButton *snowButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -62,7 +90,7 @@
             snowButton.translatesAutoresizingMaskIntoConstraints = NO;
             
             [[self view] addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:snowButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+                                        constraintWithItem:snowButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:self.lImageView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
 
             [[self view] addConstraint:[NSLayoutConstraint
                                         constraintWithItem:snowButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:-kButtonOffset]];
@@ -85,7 +113,7 @@
             weatherButton.translatesAutoresizingMaskIntoConstraints = NO;
             
             [[self view] addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:weatherButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+                                        constraintWithItem:weatherButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:self.lImageView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
             
             [[self view] addConstraint:[NSLayoutConstraint
                                         constraintWithItem:weatherButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
@@ -108,7 +136,7 @@
             trafficButton.translatesAutoresizingMaskIntoConstraints = NO;
             
             [[self view] addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:trafficButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:80.0]];
+                                        constraintWithItem:trafficButton attribute:NSLayoutAttributeTop relatedBy:0 toItem:self.lImageView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
             
             [[self view] addConstraint:[NSLayoutConstraint
                                         constraintWithItem:trafficButton attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:kButtonOffset]];
@@ -178,7 +206,7 @@
                                 constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
 
     [[self view] addConstraint:[NSLayoutConstraint
-                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self lImageView] attribute:NSLayoutAttributeBottom multiplier:1 constant:30]];
     
     [[self view] addConstraint:[NSLayoutConstraint
                                 constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
@@ -246,13 +274,14 @@
                                 constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
     [[self view] addConstraint:[NSLayoutConstraint
-                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self lImageView] attribute:NSLayoutAttributeBottom multiplier:1 constant:30]];
     
     [[self view] addConstraint:[NSLayoutConstraint
                                 constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     
     [overallView addConstraint:[NSLayoutConstraint
                                 constraintWithItem:_myView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:kDetailDisplayWidth]];
+
     overallView.contentSize = thisView.frame.size;
 
 }
@@ -280,7 +309,7 @@
                                 constraintWithItem:_myView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
     [[self view] addConstraint:[NSLayoutConstraint
-                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeTop multiplier:1 constant:120]];
+                                constraintWithItem:_myView attribute:NSLayoutAttributeTop relatedBy:0 toItem:[self lImageView] attribute:NSLayoutAttributeBottom multiplier:1 constant:30]];
     
     [[self view] addConstraint:[NSLayoutConstraint
                                 constraintWithItem:_myView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:[self view] attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];

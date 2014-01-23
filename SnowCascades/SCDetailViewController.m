@@ -189,7 +189,7 @@
     [_myView removeFromSuperview];
 
     UIScrollView *overallView = [UIScrollView new];
-    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, kDetailDisplayWidth, 400.0)];
+    SCSnowContentView *thisView = [[SCSnowContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, kDetailDisplayWidth, 800.0)];
     SCResortData *resortData = self.detailItem;
     NSDictionary *trafficData = [resortData.data objectForKey:@"traffic"];
     [thisView setViewData:[trafficData objectForKey:@"body"]];

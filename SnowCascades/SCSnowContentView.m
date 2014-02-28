@@ -74,7 +74,6 @@
                 [itemView addSubview:textLabel];
             }
             if ([item objectForKey:@"linktext"] && [item objectForKey:@"link"] ) {
-//                UILabel *linkLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 20.0)];
                 UILabel *linkLabel = [[UILabel alloc] init];
                 linkLabel.lineBreakMode = NSLineBreakByWordWrapping;
                 [linkLabel setNumberOfLines:0];
@@ -86,18 +85,6 @@
                 [linkLabel setTextColor:[UIColor darkGrayColor]];
                 [linkButton setTag:[links count]];
                 [links addObject:[item objectForKey:@"link"]];
-
-                [linkButton addConstraint:[NSLayoutConstraint
-                                            constraintWithItem:linkLabel attribute:NSLayoutAttributeBottom relatedBy:0 toItem:linkButton attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-                
-                [linkButton addConstraint:[NSLayoutConstraint
-                                            constraintWithItem:linkLabel attribute:NSLayoutAttributeTop relatedBy:0 toItem:linkButton attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-                
-                [linkButton addConstraint:[NSLayoutConstraint
-                                            constraintWithItem:linkLabel attribute:NSLayoutAttributeRight relatedBy:0 toItem:linkButton attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-                
-                [linkButton addConstraint:[NSLayoutConstraint
-                                            constraintWithItem:linkLabel attribute:NSLayoutAttributeLeft relatedBy:0 toItem:linkButton attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
                 
                 
                 yOffset = yOffset + linkLabel.frame.size.height;
